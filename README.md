@@ -9,7 +9,6 @@ This project is a simple quiz application built using HTML, CSS, and JavaScript.
 - [JavaScript Functionality](#javascript-functionality)
 - [How to Use](#how-to-use)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -49,6 +48,3 @@ The JavaScript code provides the functionality for the quiz application. Here's 
 
 Contributions to this project are welcome! You can contribute by improving the code, adding new features, or fixing issues. Please open a pull request for your contributions.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
