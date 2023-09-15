@@ -1,0 +1,162 @@
+[
+    {
+        "question": "What is the purpose of the <p> element in HTML?",
+        "answer-1": "To define the page title",
+        "answer-2": "To create an ordered list",
+        "answer-3": "To format text as a paragraph",
+        "answer-4": "To display images",
+        "right_answer": "To format text as a paragraph"
+    },
+    {
+        "question": "What is the purpose of the <a> element in HTML?",
+        "answer-1": "To set the page background",
+        "answer-2": "To add a link to another page",
+        "answer-3": "To create tables",
+        "answer-4": "To display text in bold",
+        "right_answer": "To add a link to another page"
+    },
+    {
+        "question": "How can you create a hyperlink in HTML?",
+        "answer-1": "Using the <hyperlink> tag",
+        "answer-2": "Using the <link> tag",
+        "answer-3": "Using the <a> tag",
+        "answer-4": "Using the <url> tag",
+        "right_answer": "Using the <a> tag"
+    },
+    {
+        "question": "What HTML tag is used to define a line break within text?",
+        "answer-1": "<lb>",
+        "answer-2": "<break>",
+        "answer-3": "<newline>",
+        "answer-4": "<br>",
+        "right_answer": "<br>"
+    },
+    {
+        "question": "What is the purpose of the <img> element in HTML?",
+        "answer-1": "To define a paragraph",
+        "answer-2": "To create a table",
+        "answer-3": "To display images",
+        "answer-4": "To add a link to another page",
+        "right_answer": "To display images"
+    },
+    {
+        "question": "How do you comment out multiple lines in HTML?",
+        "answer-1": "Using // at the beginning and end of the lines",
+        "answer-2": "Using /* at the beginning and */ at the end of the lines",
+        "answer-3": "Using <!-- at the beginning and --> at the end of the lines",
+        "answer-4": "Using # at the beginning and end of the lines",
+        "right_answer": "Using <!-- at the beginning and --> at the end of the lines"
+    },
+    {
+        "question": "What is the purpose of the <ul> element in HTML?",
+        "answer-1": "To create an unordered list",
+        "answer-2": "To format text as bold",
+        "answer-3": "To define a paragraph",
+        "answer-4": "To add a link to another page",
+        "right_answer": "To create an unordered list"
+    },
+    {
+        "question": "How can you create a numbered list in HTML?",
+        "answer-1": "Using the <ol> element",
+        "answer-2": "Using the <ul> element",
+        "answer-3": "Using the <li> element",
+        "answer-4": "Using the <nl> element",
+        "right_answer": "Using the <ol> element"
+    },
+    {
+        "question": "What is the purpose of the <table> element in HTML?",
+        "answer-1": "To define a paragraph",
+        "answer-2": "To create an ordered list",
+        "answer-3": "To create tables",
+        "answer-4": "To display images",
+        "right_answer": "To create tables"
+    },
+    {
+        "question": "How can you create a table header in an HTML table?",
+        "answer-1": "Using the <thead> element",
+        "answer-2": "Using the <th> element",
+        "answer-3": "Using the <header> element",
+        "answer-4": "Using the <tr> element",
+        "right_answer": "Using the <th> element"
+    },
+    {
+        "question": "What does HTML stand for?",
+        "answer-1": "Hypertext Markup Language",
+        "answer-2": "Highly Textured Multilayer Language",
+        "answer-3": "Hyperlink and Text Markup Language",
+        "answer-4": "Hyper Transfer Markup Language",
+        "right_answer": "Hypertext Markup Language"
+    },
+    {
+        "question": "Which HTML tag is used to define the document type and version of HTML being used?",
+        "answer-1": "<doctype>",
+        "answer-2": "<html>",
+        "answer-3": "<version>",
+        "answer-4": "<!DOCTYPE>",
+        "right_answer": "<!DOCTYPE>"
+    },
+    {
+        "question": "What is the purpose of the <head> element in an HTML document?",
+        "answer-1": "To define the main content of the page",
+        "answer-2": "To create a header section at the top of the page",
+        "answer-3": "To provide metadata about the document",
+        "answer-4": "To insert JavaScript code",
+        "right_answer": "To provide metadata about the document"
+    },
+    {
+        "question": "Which HTML tag is used to link an external CSS stylesheet to an HTML document?",
+        "answer-1": "<style>",
+        "answer-2": "<link>",
+        "answer-3": "<css>",
+        "answer-4": "<stylesheet>",
+        "right_answer": "<link>"
+    },
+    {
+        "question": "What is the purpose of the <div> element in HTML?",
+        "answer-1": "To create a hyperlink",
+        "answer-2": "To define a division or section of content",
+        "answer-3": "To display an image",
+        "answer-4": "To insert a line break",
+        "right_answer": "To define a division or section of content"
+    },
+    {
+        "question": "Which HTML tag is used to create a numbered list?",
+        "answer-1": "<ol>",
+        "answer-2": "<ul>",
+        "answer-3": "<li>",
+        "answer-4": "<dl>",
+        "right_answer": "<ol>"
+    },
+    {
+        "question": "How can you add a comment in an HTML document?",
+        "answer-1": "<!-- This is a comment -->",
+        "answer-2": "// This is a comment",
+        "answer-3": "' This is a comment",
+        "answer-4": "# This is a comment",
+        "right_answer": "<!-- This is a comment -->"
+    },
+    {
+        "question": "Which HTML tag is used to create a hyperlink?",
+        "answer-1": "<link>",
+        "answer-2": "<hyperlink>",
+        "answer-3": "<a>",
+        "answer-4": "<url>",
+        "right_answer": "<a>"
+    },
+    {
+        "question": "What is the purpose of the HTML `<iframe>` element?",
+        "answer-1": "To display a video",
+        "answer-2": "To embed external content within a webpage",
+        "answer-3": "To create a clickable button",
+        "answer-4": "To format text as italic",
+        "right_answer": "To embed external content within a webpage"
+    },
+    {
+        "question": "Which HTML attribute is used to define the alternative text for an image?",
+        "answer-1": "alt",
+        "answer-2": "title",
+        "answer-3": "src",
+        "answer-4": "href",
+        "right_answer": "alt"
+    }
+]
