@@ -38,7 +38,7 @@ window.onload = () => {
                     let rightAnswer = questionObject[randomIndexes[currentIndex]].right_answer;
                     currentIndex++;
                     clearInterval(countDownInterval); // Stop the timer
-                    countDown(6, questionCount); // Start the timer for the next question
+                    countDown(15, questionCount); // Start the timer for the next question
                     checkAnswer(rightAnswer, questionCount);
                     quizArea.innerHTML = ''; // Remove previous question
                     answerArea.innerHTML = ''; // Remove previous answers
@@ -152,7 +152,7 @@ window.onload = () => {
                     clearInterval(countDownInterval); // Stop the timer
                     btnSubmit.click(); // Automatically click the submit button when time is up
                 }
-            }, 15000);
+            }, 1000);
         }
     }
 
