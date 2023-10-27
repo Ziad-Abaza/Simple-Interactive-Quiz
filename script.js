@@ -152,7 +152,7 @@ window.onload = () => {
                     clearInterval(countDownInterval); // Stop the timer
                     btnSubmit.click(); // Automatically click the submit button when time is up
                 }
-            }, 500);
+            }, 15000);
         }
     }
 
