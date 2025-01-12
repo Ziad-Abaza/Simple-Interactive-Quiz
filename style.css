@@ -1,211 +1,123 @@
 :root {
-    /***************  root settings  **************/
-    /* ألوان */
-    --color-1: #ffffff; /* لون 1 */
-    --color-2: #001; /* لون 2 */
-    --color-3: #f9003e; /* لون 3 */
-    --color-4: #ff6600; /* لون 4 */
-    --color-5: #1500f8; /* لون 5 */
-    --color-6: #f86713; /* لون 6 */
-    --color-7: #737378; /* لون 7 */
-    --color-8: #0011ff; /* لون 8 */
-
-    /* أنماط الخطوط */
-    --font-family-1: "Montserrat", Arial, sans-serif; /* نوع الخط الأساسي */
-    --font-family-2: "Oswald", sans-serif; /* نوع الخط لعناوين الصفحة */
-
-    /* حواف */
-    --border-1: solid 2px #6e6e6e85; /* الحواف 1 */
-    --border-2: solid 4px #222; /* الحواف 2 */
-    --border-3: solid 2px #00c3ff; /* الحواف 3 */
-    --border-4: solid 2px var(--color-4); /* الحواف 3 */
-    --border-5: solid 3px #f9003e; /* الحواف 3 */
-    --border-6: solid 4px #001; /* الحواف 3 */
-
-    /* مدة الانتقال */
-    --transition-duration-03: 0.3s; /* مدة الانتقال */
-    --transition-duration-08: 0.8s; /* مدة الانتقال */
-    --transition-duration-1: 1s; /* مدة الانتقال */
-
-    /* أحجام الخطوط */
-    --font-size-40: 40px;
-    --font-size-28: 28px; /* حجم العنوان الرئيسي */
-    --font-size-24: 24px; /* حجم العنوان الفرعي */
-    --font-size-20: 20px; /* حجم الفقرة */
-    --font-size-18: 18px; /* حجم الفقرة */
-    --font-size-16: 16px; /* حجم الفقرة */
-    --font-size-14: 14px; /* حجم الفقرة */
-    --font-size-12: 12px; /* حجم الفقرة */
-    
-    /* ألوان الخلفيات */
-    --background-color-white: #f8f8f8; 
-    --background-color-black: #333333; 
-    --background-color-subscreen: #747d89bf; 
-    --background-color-main: #02617ba6;
-    --background-color-sub: #02617b78;
-    --background-color-1: #11223379;
-    --background-color-2: #ffffff55; 
-    --background-color-3: #69a7b1; 
-    --background-color-4: #054ebc; 
-    --background-color-5: #123; 
-    --background-color-6: #009688; 
-    --background-color-7: #ffffff8e;
-    --background-color-8: #001; 
-
-    /* ظل المربعات */
-    --box-shadow-1: 0 4px 8px #7342b8; 
-    --box-shadow-2: 2px 2px 12px #123; 
-    --box-shadow-3: 2px 4px 8px #ffffff55; 
-    --box-shadow-4: 0 4px 8px #4c7daf; 
-    --box-shadow-5: 0 4px 8px #a6d126;
-    
+	--primary-color: #4CAF50;
+	--secondary-color: #2196F3;
+	--background-color: #f4f4f4;
+	--text-color: #333;
+	--error-color: #f44336;
+	--success-color: #4CAF50;
 }
-/* إزالة الهامش والحدود وتعيين نسبة الحشو لجميع العناصر */
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    color: var(--color-1);
-}
-.quiz-info span,
-.timer span,
-.results span{
-    color: var(--color-6);
-    font-weight: bold;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* تنسيق النص والخلفية للصفحة */
 body {
-    font-family:  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.quiz-app{
-    background-color: var(--background-color-main);
-    margin: 20px auto;
-    width: 65%;
-    padding: 15px;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-}
-.quiz-app .quiz-info{
-    background-color: var(--background-color-sub);
-    display: flex;
-    padding: 20px;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    justify-content: space-between;
-    font-size: var(--font-size-16);
-    text-transform: capitalize;
-}
-.quiz-app .answer-area,
-.quiz-app .quiz-area{
-    background-color: var(--background-color-sub);
-    padding: 20px;
-    margin-top: 15px;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    text-transform: capitalize;
-}
-.quiz-app .quiz-area h2{
-    font-size: var(--font-size-24);
-}
-.quiz-app .answer-area .answer{
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: var(--font-size-18);
-}
-.quiz-app .answer-area .answer:not(:last-child){
-    border-bottom: var(--border-1);
-}
-.quiz-app .answer-area .answer input[type='Radio']:checked + label{
-    color: var(--color-5);
-}
-.quiz-app .answer-area .answer input[type='Radio']{
-    width: 20px;
-    height: 20px;
-}
-.quiz-app .answer-area .answer label{
-    cursor: pointer;
-    margin-left: 5px;
-    position: relative;
-    top:-4px;
-    text-transform: capitalize;
-    font-size: var(--font-size-18);
-    font-weight: bold;
-
-}
-.quiz-app .btn-submit{
-    background-color: var(--background-color-3);
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    width: 100%;
-    padding: 7px;
-    text-align: center;
-    font-size: var(--font-size-16);
-    display: block;
-    margin: 5px auto;
-    cursor: pointer;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.quiz-app .bullets{
-    background-color: var(--background-color-sub);
-    padding: 20px;
-    margin-top: 15px;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    display: flex;
-    justify-content: space-between;
-}
-.quiz-app .bullets .spans-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 85%;
-}
-.quiz-app .bullets .spans-container span{
-    width: 25px;
-    height: 25px;
-    background-color: var(--background-color-main);
-    margin-right: 5px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-}
-.quiz-app .bullets .spans-container span.active{
-    background-color: var(--color-6);
-}
-.quiz-app .results{
-    margin-top: 10px;
-    text-align: center;
-    font-size: var(--font-size-16);
-    text-transform: capitalize;
+	font-family: 'Arial', sans-serif;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
-@media screen and (max-width: 780px) {
-    .quiz-app{
-        width: 90%;
-    }
+.quiz-container {
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 90%;
+	max-width: 600px;
+	padding: 20px;
 }
-@media screen and (max-width: 450px) {
-    .quiz-app .bullets .spans-container{
-        width: 75%;
-    }
+
+header {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.quiz-info {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.question-container {
+	margin-bottom: 20px;
+}
+
+#question {
+	font-size: 1.5rem;
+	margin-bottom: 20px;
+}
+
+#options {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.option {
+	background: var(--background-color);
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.option:hover {
+	background: #ddd;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	background: var(--primary-color);
+	color: white;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+button:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+	background: var(--secondary-color);
+}
+
+.progress {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.progress-bar {
+	background: #e0e0e0;
+	border-radius: 5px;
+	height: 10px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.progress-fill {
+	background: var(--primary-color);
+	height: 100%;
+	width: 0%;
+	transition: width 0.3s;
+}
+
+.results-container {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
 }

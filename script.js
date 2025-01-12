@@ -1,173 +1,134 @@
-window.onload = () => {
-    // Selecting elements from the HTML document
-    let countSpan = document.querySelector(".count-question #count");
-    let bulletsContainer = document.querySelector(".bullets .spans-container");
-    let bullet = document.querySelector(".bullets");
-    let quizArea = document.querySelector(".quiz-area");
-    let answerArea = document.querySelector(".answer-area");
-    let btnSubmit = document.querySelector(".btn-submit");
-    let resultContainer = document.querySelector(".quiz-app .results");
-    let countDownElement = document.querySelector(".bullets .timer");
+class QuizApp {
+  constructor() {
+    this.questions = [];
+    this.currentQuestionIndex = 0;
+    this.score = 0;
+    this.timeLeft = 60;
+    this.timerInterval = null;
+    this.init();
+  }
 
-    // Setting initial variables
-    let currentIndex = 0;
-    let randomIndexes;
-    let numberOfCorrectAnswer = 0; // Count of correct answers
-    let countDownInterval; // Timer interval for countdown
+  async init() {
+    await this.loadQuestions();
+    this.startQuiz();
+    this.preventCheating(); 
+  }
 
-    // Function to fetch questions from a database
-    function gitQuestion() {
-        let request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                let questionObject = JSON.parse(this.responseText);
-                let questionCount = 10; // Number of questions to fetch
-
-                // Generating random indexes to select questions
-                randomIndexes = generateRandomIndexes(questionCount);
-
-                // Creating bullet points for questions
-                createBullets(questionCount);
-
-                // Adding the first question
-                addData(questionObject[randomIndexes[currentIndex]], questionCount);
-
-                // Handling the submit button click event
-                btnSubmit.onclick = () => {
-                    let rightAnswer = questionObject[randomIndexes[currentIndex]].right_answer;
-                    currentIndex++;
-                    clearInterval(countDownInterval); // Stop the timer
-                    countDown(6, questionCount); // Start the timer for the next question
-                    checkAnswer(rightAnswer, questionCount);
-                    quizArea.innerHTML = ''; // Remove previous question
-                    answerArea.innerHTML = ''; // Remove previous answers
-                    addData(questionObject[randomIndexes[currentIndex]], questionCount); // Add the next question
-                    handleBullets(); // Update the bullet points
-                    showResults(questionCount); // Show results if all questions are answered
-                }
-            }
-        }
-
-        request.open("GET", "Question.json", true); // Fetch questions from a JSON file
-        request.send();
+  async loadQuestions() {
+    try {
+      const response = await fetch("questions.json");
+      this.questions = await response.json();
+    } catch (error) {
+      console.error("Error loading questions:", error);
     }
+  }
 
-    // Function to create bullet points for questions
-    function createBullets(ring) {
-        countSpan.innerHTML = ring; // Display the total number of questions
-        for (let i = 1; i <= ring; i++) {
-            let spans = document.createElement("span");
-            if (i === 1) {
-                spans.classList.add('active'); // Add 'active' class to the first bullet
-            }
-            bulletsContainer.appendChild(spans); // Append bullet points
-        }
+  startQuiz() {
+    this.updateQuestion();
+    this.startTimer();
+    this.setupEventListeners();
+  }
+
+  updateQuestion() {
+    const question = this.questions[this.currentQuestionIndex];
+    document.getElementById("question").textContent = question.question;
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
+    question.options.forEach((option, index) => {
+      const optionElement = document.createElement("div");
+      optionElement.classList.add("option");
+      optionElement.textContent = option;
+      optionElement.addEventListener("click", () => this.selectAnswer(option));
+      optionsContainer.appendChild(optionElement);
+    });
+    this.updateProgress();
+  }
+
+  selectAnswer(selectedOption) {
+    const question = this.questions[this.currentQuestionIndex];
+    if (selectedOption === question.answer) {
+      this.score++;
     }
+    this.nextQuestion();
+  }
 
-    // Function to add question and answer options
-    function addData(obj, count) {
-        if (currentIndex < count) {
-            // Create a heading for the question
-            let questionTitle = document.createElement('h2');
-            let questionText = document.createTextNode(obj['question']);
-            questionTitle.appendChild(questionText);
-            quizArea.appendChild(questionTitle);
-
-            // Create answer options
-            for (let i = 1; i <= 4; i++) {
-                let answerDiv = document.createElement('div');
-                answerDiv.classList.add('answer');
-                let radioElement = document.createElement('input');
-                radioElement.name = 'question';
-                radioElement.type = 'radio';
-                radioElement.id = `answer-${i}`;
-                radioElement.dataset.answer = obj[`answer-${i}`];
-
-                let label = document.createElement('label');
-                label.htmlFor = `answer-${i}`;
-                let labelText = document.createTextNode(obj[`answer-${i}`]);
-
-                label.appendChild(labelText);
-                answerDiv.appendChild(radioElement);
-                answerDiv.appendChild(label);
-                answerArea.appendChild(answerDiv);
-            }
-        }
+  nextQuestion() {
+    this.currentQuestionIndex++;
+    if (this.currentQuestionIndex < this.questions.length) {
+      this.updateQuestion();
+    } else {
+      this.endQuiz();
     }
+  }
 
-    // Function to check the selected answer
-    function checkAnswer(answer, limit) {
-        let answers = document.getElementsByName("question");
-        let chooseAnswer;
-        if (currentIndex < limit) {
-            for (let i = 0; i < 4; i++) {
-                if (answers[i].checked) {
-                    chooseAnswer = answers[i].dataset.answer;
-                }
-            }
-            if (answer === chooseAnswer) {
-                numberOfCorrectAnswer++; // Increment correct answer count
-            }
-        }
-    }
+  updateProgress() {
+    const progressFill = document.querySelector(".progress-fill");
+    const progress =
+      ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
+    progressFill.style.width = `${progress}%`;
+    document.getElementById("current-question").textContent =
+      this.currentQuestionIndex + 1;
+    document.getElementById("total-questions").textContent =
+      this.questions.length;
+  }
 
-    // Function to handle bullet points navigation
-    function handleBullets() {
-        let bulletsSpans = document.querySelectorAll(".bullets .spans-container span");
-        let arrOfSpans = Array.from(bulletsSpans);
+  startTimer() {
+    this.timerInterval = setInterval(() => {
+      this.timeLeft--;
+      document.getElementById("timer").textContent = this.formatTime(
+        this.timeLeft
+      );
+      if (this.timeLeft <= 0) {
+        this.endQuiz();
+      }
+    }, 1000);
+  }
 
-        arrOfSpans.forEach((span, index) => {
-            if (currentIndex === index) {
-                span.classList.add('active'); // Add 'active' class to the current bullet
-            }
-        });
-    }
+  formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+  }
 
-    // Function to show results when all questions are answered
-    function showResults(End) {
-        let getBackResult;
-        if (currentIndex === End) {
-            quizArea.remove();
-            answerArea.remove();
-            bullet.remove();
-            btnSubmit.remove();
+  endQuiz() {
+    clearInterval(this.timerInterval);
+    document.querySelector(".quiz-container").classList.add("hidden");
+    document.querySelector(".results-container").classList.remove("hidden");
+    document.getElementById("score").textContent = this.score;
+    document.getElementById("total").textContent = this.questions.length;
+  }
 
-            getBackResult = `You have answered <span>${numberOfCorrectAnswer}</span> of the <span id="count">${End}</span> questions correctly.`;
-            resultContainer.innerHTML = getBackResult; // Display the results
-        }
-    }
+  setupEventListeners() {
+    document
+      .getElementById("next-btn")
+      .addEventListener("click", () => this.nextQuestion());
+    document
+      .getElementById("restart-btn")
+      .addEventListener("click", () => window.location.reload());
+  }
 
-    // Function for the countdown timer
-    function countDown(timer, countQuestion) {
-        if (currentIndex < countQuestion) {
-            let minutes, seconds;
-            countDownInterval = setInterval(() => {
-                minutes = parseInt(timer / 60);
-                seconds = parseInt(timer % 60);
-                minutes = minutes < 10 ? `0${minutes}` : minutes;
-                seconds = seconds < 10 ? `0${seconds}` : seconds;
-                countDownElement.innerHTML = `<span class="min">${minutes}</span> : <span class="sec">${seconds}</span>`;
-                if (--timer < 0) {
-                    clearInterval(countDownInterval); // Stop the timer
-                    btnSubmit.click(); // Automatically click the submit button when time is up
-                }
-            }, 500);
-        }
-    }
+  preventCheating() {
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+        alert("Developer tools are disabled during the quiz.");
+      }
+    });
 
-    // Function to generate random indexes for selecting questions
-    function generateRandomIndexes(count) {
-        let randomIndexes = [];
-        while (randomIndexes.length < count) {
-            let randomIndex = Math.floor(Math.random() * count);
-            if (!randomIndexes.includes(randomIndex)) {
-                randomIndexes.push(randomIndex);
-            }
-        }
-        return randomIndexes;
-    }
+    document.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      alert("Right-click is disabled during the quiz.");
+    });
 
-    // Start fetching questions
-    gitQuestion();
+    document.addEventListener("copy", (e) => {
+      e.preventDefault();
+      alert("Copying text is disabled during the quiz.");
+    });
+  }
 }
+
+new QuizApp();

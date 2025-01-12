@@ -1,0 +1,172 @@
+[
+  {
+    "question": "What is the purpose of the <p> element in HTML?",
+    "options": [
+      "To define the page title",
+      "To create an ordered list",
+      "To format text as a paragraph",
+      "To display images"
+    ],
+    "answer": "To format text as a paragraph"
+  },
+  {
+    "question": "What is the purpose of the <a> element in HTML?",
+    "options": [
+      "To set the page background",
+      "To add a link to another page",
+      "To create tables",
+      "To display text in bold"
+    ],
+    "answer": "To add a link to another page"
+  },
+  {
+    "question": "How can you create a hyperlink in HTML?",
+    "options": [
+      "Using the <hyperlink> tag",
+      "Using the <link> tag",
+      "Using the <a> tag",
+      "Using the <url> tag"
+    ],
+    "answer": "Using the <a> tag"
+  },
+  {
+    "question": "What HTML tag is used to define a line break within text?",
+    "options": ["<lb>", "<break>", "<newline>", "<br>"],
+    "answer": "<br>"
+  },
+  {
+    "question": "What is the purpose of the <img> element in HTML?",
+    "options": [
+      "To define a paragraph",
+      "To create a table",
+      "To display images",
+      "To add a link to another page"
+    ],
+    "answer": "To display images"
+  },
+  {
+    "question": "How do you comment out multiple lines in HTML?",
+    "options": [
+      "Using // at the beginning and end of the lines",
+      "Using /* at the beginning and */ at the end of the lines",
+      "Using <!-- at the beginning and --> at the end of the lines",
+      "Using # at the beginning and end of the lines"
+    ],
+    "answer": "Using <!-- at the beginning and --> at the end of the lines"
+  },
+  {
+    "question": "What is the purpose of the <ul> element in HTML?",
+    "options": [
+      "To create an unordered list",
+      "To format text as bold",
+      "To define a paragraph",
+      "To add a link to another page"
+    ],
+    "answer": "To create an unordered list"
+  },
+  {
+    "question": "How can you create a numbered list in HTML?",
+    "options": [
+      "Using the <ol> element",
+      "Using the <ul> element",
+      "Using the <li> element",
+      "Using the <nl> element"
+    ],
+    "answer": "Using the <ol> element"
+  },
+  {
+    "question": "What is the purpose of the <table> element in HTML?",
+    "options": [
+      "To define a paragraph",
+      "To create an ordered list",
+      "To create tables",
+      "To display images"
+    ],
+    "answer": "To create tables"
+  },
+  {
+    "question": "How can you create a table header in an HTML table?",
+    "options": [
+      "Using the <thead> element",
+      "Using the <th> element",
+      "Using the <header> element",
+      "Using the <tr> element"
+    ],
+    "answer": "Using the <th> element"
+  },
+  {
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hypertext Markup Language",
+      "Highly Textured Multilayer Language",
+      "Hyperlink and Text Markup Language",
+      "Hyper Transfer Markup Language"
+    ],
+    "answer": "Hypertext Markup Language"
+  },
+  {
+    "question": "Which HTML tag is used to define the document type and version of HTML being used?",
+    "options": ["<doctype>", "<html>", "<version>", "<!DOCTYPE>"],
+    "answer": "<!DOCTYPE>"
+  },
+  {
+    "question": "What is the purpose of the <head> element in an HTML document?",
+    "options": [
+      "To define the main content of the page",
+      "To create a header section at the top of the page",
+      "To provide metadata about the document",
+      "To insert JavaScript code"
+    ],
+    "answer": "To provide metadata about the document"
+  },
+  {
+    "question": "Which HTML tag is used to link an external CSS stylesheet to an HTML document?",
+    "options": ["<style>", "<link>", "<css>", "<stylesheet>"],
+    "answer": "<link>"
+  },
+  {
+    "question": "What is the purpose of the <div> element in HTML?",
+    "options": [
+      "To create a hyperlink",
+      "To define a division or section of content",
+      "To display an image",
+      "To insert a line break"
+    ],
+    "answer": "To define a division or section of content"
+  },
+  {
+    "question": "Which HTML tag is used to create a numbered list?",
+    "options": ["<ol>", "<ul>", "<li>", "<dl>"],
+    "answer": "<ol>"
+  },
+  {
+    "question": "How can you add a comment in an HTML document?",
+    "options": [
+      "<!-- This is a comment -->",
+      "// This is a comment",
+      "' This is a comment",
+      "# This is a comment"
+    ],
+    "answer": "<!-- This is a comment -->"
+  },
+  {
+    "question": "Which HTML tag is used to create a hyperlink?",
+    "options": ["<link>", "<hyperlink>", "<a>", "<url>"],
+    "answer": "<a>"
+  },
+  {
+    "question": "What is the purpose of the HTML `<iframe>` element?",
+    "options": [
+      "To display a video",
+      "To embed external content within a webpage",
+      "To create a clickable button",
+      "To format text as italic"
+    ],
+    "answer": "To embed external content within a webpage"
+  },
+  {
+    "question": "Which HTML attribute is used to define the alternative text for an image?",
+    "options": ["alt", "title", "src", "href"],
+    "answer": "alt"
+  }
+]

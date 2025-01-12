@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Quiz App</title>
     <link rel="stylesheet" href="style.css">
-    <title>Question</title>
 </head>
 <body>
-    <div class="quiz-app">
-        <!-- information of test -->
-        <div class="quiz-info">
-            <div class="category">category: <span>HTML</span></div>
-            <div class="count-question">Question: <span id="count"></span></div>
-        </div>
-        <!-- container Question -->
-        <div class="quiz-area"></div>
-        <!-- container Answer -->
-        <div class="answer-area"></div>
-        <!-- button send Answer -->
-        <button type="submit" class="btn-submit">submit</button>
-        <div class="bullets">
-            <!-- count question -->
-            <div class="spans-container"></div>
-            <!-- timer (countdown) -->
-            <div class="timer"></div>
-        </div>
-        <!-- result all answer -->
-        <div class="results count-question"></div>
+    <div class="quiz-container">
+        <header>
+            <h1>Quiz App</h1>
+            <div class="quiz-info">
+                <span>Category: <span id="category">General</span></span>
+                <span>Time Left: <span id="timer">00:00</span></span>
+            </div>
+        </header>
+        <main>
+            <div class="question-container">
+                <h2 id="question"></h2>
+                <div id="options"></div>
+            </div>
+            <div class="controls">
+                <button id="prev-btn" disabled>Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+        </main>
+        <footer>
+            <div class="progress">
+                <span>Question <span id="current-question">1</span> of <span id="total-questions">10</span></span>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="results-container hidden">
+        <h2>Quiz Results</h2>
+        <p>You scored <span id="score">0</span> out of <span id="total">10</span>!</p>
+        <button id="restart-btn">Restart Quiz</button>
     </div>
     <script src="script.js"></script>
 </body>
