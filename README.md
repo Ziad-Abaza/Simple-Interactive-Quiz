@@ -13,8 +13,8 @@ You can try the live demo here: [Simple Interactive Quiz](https://ziad-abaza.git
 This project was born out of my desire to practice and improve my skills in **HTML**, **CSS**, and **JavaScript**. It began as a simple quiz interface and gradually evolved into a more interactive and feature-rich application as I learned new techniques and best practices.
 
 The project has two versions:
-1. **Basic Version**: The initial version I created when I was just starting out. It includes a simple quiz interface with basic functionality.
-2. **Advanced Version**: A more polished version with additional features like a timer, cheat prevention, and improved UI.
+1. **Basic Version 'main'**: The initial version I created when I was just starting out. It includes a simple quiz interface with basic functionality.
+2. **Advanced Version 'advanced-features'**: A more polished version with additional features like a timer, cheat prevention, and improved UI.
 
 ---
 
