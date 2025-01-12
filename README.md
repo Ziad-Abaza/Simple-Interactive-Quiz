@@ -73,12 +73,3 @@ This project was a great way for me to:
 - Understand the importance of user experience and interface design.
 - Experiment with new features and techniques as I progressed.
 
----
-
-## Future Improvements
-
-- Add more categories and questions.
-- Implement user authentication and score tracking.
-- Integrate a backend for storing results.
-- Add animations and transitions for a smoother user experience.
-
