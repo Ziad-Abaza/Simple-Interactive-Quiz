@@ -1,6 +1,6 @@
 # Simple Interactive Quiz
 
-![Quiz Screenshot](Screen.jpeg)
+![Quiz Screenshot](https://ziad-abaza.github.io/Simple-Interactive-Quiz/Screen.jpeg)
 
 Welcome to the **Simple Interactive Quiz** project! This is a basic quiz application built with HTML, CSS, and JavaScript. It started as a simple idea I had to practice my front-end development skills, and it evolved into a more advanced version as I learned new concepts.
 
@@ -57,17 +57,6 @@ The project has two versions:
    ```
 4. Open the `index.html` file again to see the enhanced features.
 
----
-
-## Screenshots
-
-### Basic Version
-![Basic Version Screenshot](Screen.jpeg)
-
-### Advanced Version
-![Advanced Version Screenshot](Screen-Advanced.jpeg) <!-- Add a screenshot for the advanced version if available -->
-
----
 
 ## Live Demo
 
